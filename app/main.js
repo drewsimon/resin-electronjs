@@ -27,6 +27,7 @@ const electronConfig = {
   ELECTRON_BALENA_UPDATE_LOCK: process.env.ELECTRON_BALENA_UPDATE_LOCK === '1',
   ELECTRON_APP_DATA_DIR: process.env.ELECTRON_APP_DATA_DIR,
   ELECTRON_USER_DATA_DIR: process.env.ELECTRON_USER_DATA_DIR,
+  ELECTRON_USER_DATA_DIR: process.env.REFRESH_INTERVAL,
 };
 
 // Enable / disable hardware acceleration
@@ -117,6 +118,14 @@ app.on('ready', () => {
     setTimeout(() => {
       mainWindow.show();
     }, 300);
+    if (electronConfig.REFRESH_INTERVAL) {
+      const interval = parseInt(electronConfig.REFRESH_INTERVAL, 10);
+      if (interval !== NaN) {
+        setTimeout(() => {
+          mainWindow.reload()
+        }, interval);
+      }
+    }
   });
 
   // if the env-var is set to true,
