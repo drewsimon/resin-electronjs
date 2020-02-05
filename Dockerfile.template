@@ -1,7 +1,7 @@
 ###
 # Build stage
 ##
-FROM balenalib/%%BALENA_MACHINE_NAME%%-node:10-build as build
+FROM balenalib/%%BALENA_MACHINE_NAME%%-node:latest-build as build
 
 # Move to app dir
 WORKDIR /usr/src/app
@@ -32,7 +32,7 @@ RUN install_packages \
 COPY ./app/package.json .
 
 # Install npm modules for the application
-RUN    JOBS=MAX npm install --unsafe-perm --production \
+RUN    JOBS=MAX yarn install --production \
     && node_modules/.bin/electron-rebuild
 
 
