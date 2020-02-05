@@ -27,7 +27,7 @@ const electronConfig = {
   ELECTRON_BALENA_UPDATE_LOCK: process.env.ELECTRON_BALENA_UPDATE_LOCK === '1',
   ELECTRON_APP_DATA_DIR: process.env.ELECTRON_APP_DATA_DIR,
   ELECTRON_USER_DATA_DIR: process.env.ELECTRON_USER_DATA_DIR,
-  ELECTRON_USER_DATA_DIR: process.env.REFRESH_INTERVAL,
+  REFRESH_INTERVAL: process.env.REFRESH_INTERVAL,
 };
 
 // Enable / disable hardware acceleration
