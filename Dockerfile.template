@@ -36,7 +36,6 @@ COPY ./app/yarn.lock .
 ENV npm_config_arch armv7l
 RUN    JOBS=MAX yarn install --production --verbose \
     && node_modules/.bin/electron-rebuild
-RUN ls node_modules/electron/*
 
 
 ###
