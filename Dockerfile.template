@@ -33,7 +33,7 @@ COPY ./app/package.json .
 COPY ./app/yarn.lock .
 
 # Install npm modules for the application
-RUN    JOBS=MAX yarn install --production \
+RUN    JOBS=MAX yarn install --production --verbose \
     && node_modules/.bin/electron-rebuild
 RUN ls node_modules/electron/*
 
