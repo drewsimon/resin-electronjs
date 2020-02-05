@@ -34,7 +34,7 @@ COPY ./app/yarn.lock .
 
 # Install npm modules for the application
 ENV npm_config_arch armv7l
-RUN    JOBS=MAX yarn install --production --verbose \
+RUN    JOBS=MAX yarn install --production \
     && node_modules/.bin/electron-rebuild
 
 
